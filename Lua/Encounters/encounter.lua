@@ -6,7 +6,7 @@ deathmusic = "It's Raining Somewhere Back"
 deathtext = {"Curiosity Killed The Fox..."}
 
 music = "Main Theme" --Either OGG or WAV. Extension is added automatically. Uncomment for custom music.
-encountertext = "Are you ready,[color:ff0000] PARTNER?" --Modify as necessary. It will only be read out in the action select screen.
+encountertext = "[color:ff0000]1 Left." --Modify as necessary. It will only be read out in the action select screen.
 nextwaves = {"knife_wave"}
 wavetimer = 4.0
 arenasize = {155, 130}
@@ -64,12 +64,12 @@ end
 function HandleItem(ItemID)
     if ItemID == "G. TEA" then
         HealKarma(92)
-		BattleDialog({"You drank the [color:ffff00]Golden Flower Tea.[color:ffffff]\nThe smell reminded Frisk about something...[color:ff0000] Someone.[color:ffffff] \nHealed [color:ffff00]92 [color:ffffff]HP!"})
+		BattleDialog({"I drank the [color:ffff00]Golden Flower Tea.[w:5][color:ffffff]\nThe smell reminded Frisk about something...[w:5]\nHealed [color:ffff00]92 [color:ffffff]HP!"})
 	elseif ItemID == "SNOWPIECE" then
         HealKarma(45)
-        BattleDialog({"You ate the Snowman Piece. \nYou Healed[color:ffff00] 45 [color:ffffff]HP!"})
+        BattleDialog({"I ate the Snowman Piece.\n[w:5][color:ff0000]I Enjoy The Snowman's Crushed Hopes and Dreams.\n[color:ffffff][w:5]I Healed[color:ffff00] 45 [color:ffffff]HP!"})
     elseif ItemID == "G. APPLE" then
        HealKarma(40)
-       BattleDialog({"You eat the [color:ffff00]Golden Apple. \nYou feel stronger![color:ffffff] \nYou Recovered [color:ffff00]40[color:ffffff] HP!"})
+       BattleDialog({"I eat the [color:ffff00]Golden Apple.[w:5]\nI feel stronger![w:5][color:ffffff] \n[w:5]I Recovered [color:ffff00]40[color:ffffff] HP!"})
     end
 end

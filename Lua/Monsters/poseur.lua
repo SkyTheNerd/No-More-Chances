@@ -1,14 +1,14 @@
 -- A basic monster script skeleton you can copy and modify for your own creations.
 comments = {"Smells like the work\rof an enemy stand.", "Frisk is posing like his\rlife depends on it.", "Frisk's limbs shouldn't be\rmoving in this way."}
-commands = {"Act 1", "Act 2", "Act 3"}
-randomdialogue = {"Random\nDialogue\n1.", "Random\nDialogue\n2.", "Random\nDialogue\n3."}
+commands = {"Call", "Apologize", "Act 3"}
+randomdialogue = {"..."}
 
 sprite = "Frisk" --Always PNG. Extension is added automatically.
 name = "Frisk"
 hp = 100
 atk = 1
 def = 1
-check = "Hey Look, It's me!"
+check = "[color:ff0000] You Already Know Who I am."
 dialogbubble = "right" -- See documentation for what bubbles you have available.
 canspare = false
 cancheck = true
@@ -24,12 +24,11 @@ end
  
 -- This handles the commands; all-caps versions of the commands list you have above.
 function HandleCustomCommand(command)
-    if command == "ACT 1" then
-        currentdialogue = {"Selected\nAct 1."}
-    elseif command == "ACT 2" then
-        currentdialogue = {"Selected\nAct 2."}
+    if command == "CALL" then
+        BattleDialog({"I Called for Help.\n.[w:30].[w:30].[w:30]\n[color:ff0000]But Nobody Came..."})
+    elseif command == "APOLOGIZE" then
+        BattleDialog({"I say that I'm sorry[w:5].[w:5].[w:5].\n[color:ff0000][w:5]But I don't care."})
     elseif command == "ACT 3" then
         currentdialogue = {"Selected\nAct 3."}
     end
-    BattleDialog({"You selected " .. command .. "."})
 end
