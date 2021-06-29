@@ -1,5 +1,7 @@
+-- this is so The Karma Works (you should know this)
 require "karma"
 
+-- These are timers btw lol
 urmom = 0
 timer = 0
 attacks = 0
@@ -43,7 +45,7 @@ function Update()
 		timer = 0
 		attacks = attacks + 1
 	end
-	if urmom == 40 then
+	if urmom == 60 then
 		if attacks < 1145 then
 			misil = CreateProjectile('BeegBullet', -160, 0, 'BelowPlayer')
 			misil.sprite.SetParent(box)

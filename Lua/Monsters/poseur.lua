@@ -24,10 +24,21 @@ end
 function HandleAttack(attackstatus)
     if attackstatus == -1 then
         -- player pressed fight but didn't press Z afterwards
-        EndEpic()
+        if GetYellowHP() > 11 then
+            EndEpic()
+            DamageKarma(-10)
+        else
+            Player.hp = 0
+            EndEpic()
+        end
     else
-        DamageKarma(-15)
-        EndEpic()
+        if GetYellowHP() > 11 then
+            EndEpic()
+            DamageKarma(-10)
+        else
+            EndEpic()
+            Player.hp = 0
+        end
     end
 end
  
@@ -36,7 +47,7 @@ function HandleCustomCommand(command)
     if command == "CALL" then
         BattleDialog({"I Called for Help.\n.[w:30].[w:30].[w:30]\n[color:ff0000]But Nobody Came..."})
     elseif command == "APOLOGIZE" then
-        BattleDialog({"I say that I'm sorry[w:5].[w:5].[w:5].\n[color:ff0000][w:5]But I don't care."})
+        BattleDialog({"I say that I'm sorry[w:5].[w:5].[w:5].\n[color:ff0000][w:5]But Frisk doesn't care."})
     elseif command == "ACT 3" then
         currentdialogue = {"Selected\nAct 3."}
     end
