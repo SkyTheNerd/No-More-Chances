@@ -124,6 +124,20 @@ function HealKarma(amount)
     SetRealGlobal("purple_hp", purple_hp)
     SetRealGlobal("yellow_hp", yellow_hp)
 end
+function DamageKarma(amount)
+    local yellow_hp = GetRealGlobal("yellow_hp")
+    local purple_hp = GetRealGlobal("purple_hp")
+
+    yellow_hp = yellow_hp + amount
+    if yellow_hp > 92 then yellow_hp = 92 end
+    purple_hp = purple_hp - amount
+    if purple_hp < 0 then purple_hp = 0 end
+
+    Audio.PlaySound("hurtsound")
+    
+    SetRealGlobal("purple_hp", purple_hp)
+    SetRealGlobal("yellow_hp", yellow_hp)
+end
 
 -- Use this as a "Player.hp"
 function GetYellowHP()

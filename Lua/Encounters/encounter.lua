@@ -26,6 +26,7 @@ possible_attacks = {"knife_wave"}
 
 function EncounterStarting()
     -- If you want to change the game state immediately, this is the place.
+    require "Animations/frisk_anim"
     ResetBar()
     Player.lv = 19
     Player.hp = 92
@@ -34,6 +35,7 @@ function EncounterStarting()
 end
 
 function Update()
+	AnimateFrisk()
     UpdateBar()
     EscapeAnim()
 end

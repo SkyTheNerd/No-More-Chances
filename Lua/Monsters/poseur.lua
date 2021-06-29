@@ -1,9 +1,11 @@
+require "karma"
+require "Animations/frisk_anim"
 -- A basic monster script skeleton you can copy and modify for your own creations.
 comments = {"Smells like the work\rof an enemy stand.", "Frisk is posing like his\rlife depends on it.", "Frisk's limbs shouldn't be\rmoving in this way."}
 commands = {"Call", "Apologize", "Act 3"}
 randomdialogue = {"..."}
 
-sprite = "Frisk" --Always PNG. Extension is added automatically.
+sprite = "empty" --Always PNG. Extension is added automatically.
 name = "Frisk"
 hp = 100
 atk = 1
@@ -13,12 +15,19 @@ dialogbubble = "right" -- See documentation for what bubbles you have available.
 canspare = false
 cancheck = true
 
+-- Before slash animation
+function BeforeDamageCalculation()
+    SetDamage(0)
+    StartEpic()
+end
 -- Happens after the slash animation but before 
 function HandleAttack(attackstatus)
     if attackstatus == -1 then
         -- player pressed fight but didn't press Z afterwards
+        EndEpic()
     else
-        -- player did actually attack
+        DamageKarma(-15)
+        EndEpic()
     end
 end
  
